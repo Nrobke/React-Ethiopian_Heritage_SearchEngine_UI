@@ -13,7 +13,7 @@ export const Search = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (isEnterPressed ?? debouncedValue) {
+    if (isEnterPressed && debouncedValue) {
       setSearchTerm(debouncedValue);
     }
   }, [debouncedValue, setSearchTerm, isEnterPressed]);
@@ -34,6 +34,12 @@ export const Search = () => {
 
   return (
     <div className="relative sm:ml-48 md:ml-72 sm:-mt-10 mt-3">
+       <h1 className="text-3xl font-bold mb-10 ml-6 font-serif">
+          <span className="text-blue-600">Cultural</span> 
+          <span className="text-green-600">Heritages</span> 
+          <span className="text-blue-500">Search</span> 
+          <span className="text-green-600">Engine</span>
+       </h1>
       <input
         value={text}
         type="text"
@@ -43,7 +49,7 @@ export const Search = () => {
         onKeyDown={handleKeyPress}
       />
       {text !== '' && (
-        <button type="button" className="absolute top-1.5 right-4 text-2xl text-gray-500 " onClick={clearSearch}>
+        <button type="button" className="relative right-10 text-2xl text-gray-500 " onClick={clearSearch}>
           x
         </button>
       )}

@@ -3,7 +3,7 @@ import React from "react";
 const ErrorDisplay = ({ error, onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <div className="bg-red-500 text-white p-4 rounded-md shadow-md">
+      <div className="bg-red-500 text-white p-4 rounded-md shadow-md mt-16">
         <p className="text-lg">{error}</p>
         <button
           onClick={onClose}

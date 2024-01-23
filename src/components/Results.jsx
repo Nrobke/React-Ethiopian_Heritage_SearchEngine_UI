@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useStateContext } from '../contexts/StateContextProvider';
 import { Loading } from './Loading';
+import { useResultsContext } from '../contexts/ResultsContext';
 
 export const Results = () => {
   const { results, loading, getResults, searchTerm } = useStateContext();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5; // Adjust as needed
+  const { updateResults } = useResultsContext(); 
 
   useEffect(() => {
     if(searchTerm){
@@ -26,7 +28,14 @@ export const Results = () => {
     }
   };
 
+  const handleExplorePopular = () => {
+    // Logic to handle exploring popular queries
+    // For example, redirect to a page with popular queries or update the search term
+  };
+
   if (loading) return <Loading />;
+
+  updateResults(results);
 
   return (
     <div className="sm:px-56 flex flex-col space-y-6">
@@ -52,7 +61,26 @@ export const Results = () => {
           </div>
         ))
       ) : (
-        <p className="text-base">No search result</p>
+        <div className="flex flex-col items-center mt-8">
+          <p className="text-lg text-base mb-4">
+            {searchTerm
+              ? "No matching results found. Try refining your search."
+              : "Start searching to find results!"}
+          </p>
+          {searchTerm && (
+            <p className="text-md text-gray-500">
+              You can try different keywords or check your spelling.
+            </p>
+          )}
+          {/* <button
+            onClick={handleExplorePopular}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-blue-600"
+          >
+            Explore popular queries
+          </button> */}
+          {/* You can add more interactive elements or tips based on your application's context */}
+        </div>
+
       )}
 
       {totalPages > 1 && (
@@ -60,7 +88,7 @@ export const Results = () => {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="mx-2 px-3 py-1 bg-gray-300 rounded-md"
+            className="mx-2 px-3 py-1 bg-gray-300 rounded-md dark:text-black"
           >
             Prev
           </button>
@@ -68,7 +96,7 @@ export const Results = () => {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="mx-2 px-3 py-1 bg-gray-300 rounded-md"
+            className="mx-2 px-3 py-1 bg-gray-300 rounded-md dark:text-black"
           >
             Next
           </button>

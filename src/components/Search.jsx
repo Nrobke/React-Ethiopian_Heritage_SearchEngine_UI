@@ -48,7 +48,7 @@ export const Search = () => {
               value={text}
               type="text"
               className="sm:w-96 w-80 h-10 dark:bg-gray-200 border rounded-full shadow-sm outline-none p-6 text-black hover:shadow-lg ml-2"
-              placeholder="🔎 Search cultural heritages"
+              placeholder="Search cultural heritages"
               onChange={(e) => setText(e.target.value)}
               onKeyDown={handleKeyPress}
             />
@@ -74,7 +74,7 @@ export const Search = () => {
             value={text}
             type="text"
             className="sm:w-96 w-80 h-10 dark:bg-gray-200 border rounded-full shadow-sm outline-none p-6 text-black hover:shadow-lg ml-12"
-            placeholder="🔎 Search cultural heritages"
+            placeholder="Search cultural heritages"
             onChange={(e) => setText(e.target.value)}
             onKeyDown={handleKeyPress}
           />

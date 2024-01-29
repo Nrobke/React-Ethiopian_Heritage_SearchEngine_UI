@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { url: '/search', text: '🔎 Semantic Search' },
+  { url: '/search', text: 'Semantic Search' },
 ];
 
 export const Links = () => (

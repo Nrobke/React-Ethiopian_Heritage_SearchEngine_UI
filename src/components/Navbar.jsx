@@ -11,11 +11,11 @@ export const Navbar = ({ setDarkTheme, darkTheme }) => {
        <div className="flex justify-between items-center space-x-5 w-screen">
         <Link to="/">
           { hasResults && (
-            <h3 className="text-2xl font-bold text-white py-1 px-2 rounded">
-            <span className="text-blue-600">Cultural</span>
-            <span className="text-green-600">Heritages</span>
-            <span className="text-blue-500">Search</span>
-            <span className="text-green-600">Engine</span> 
+            <h3 className="text-2xl font-bold text-white py-1 px-2 rounded bg-gray-200 dark:bg-gray-800">
+            <span className="text-blue-600 dark:text-blue-700">Cultural</span>
+            <span className="text-blue-600 dark:text-blue-700">Heritages</span>
+            <span className="text-green-500 dark:text-green-700">Search</span>
+            <span className="text-green-600 dark:text-green-700">Engine</span> 
           </h3>
             )           
           } 

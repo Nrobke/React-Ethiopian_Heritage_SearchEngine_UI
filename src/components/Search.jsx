@@ -65,10 +65,10 @@ export const Search = () => {
       ) : (
         <>
           <h1 className="text-3xl font-bold mb-10 ml-6 font-serif">
-            <span className="text-blue-600">Cultural</span>
-            <span className="text-green-600">Heritages</span>
-            <span className="text-blue-500">Search</span>
-            <span className="text-green-600">Engine</span>
+            <span className="text-blue-600 dark:text-blue-500">Cultural</span>
+            <span className="text-blue-600 dark:text-blue-500">Heritages</span>
+            <span className="text-green-600 dark:text-green-500">Search</span>
+            <span className="text-green-600 dark:text-green-500">Engine</span>
           </h1>
           <input
             value={text}

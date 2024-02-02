@@ -6,7 +6,7 @@ import { useResultsContext } from '../contexts/ResultsContext';
 export const Results = () => {
   const { results, loading, getResults, searchTerm } = useStateContext();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Adjust as needed
+  const itemsPerPage = 6; 
   const { updateResults } = useResultsContext(); 
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const Results = () => {
         paginatedResults.map((item, index) => (
           <div key={index} className="md:w-3/5 w-full">
             <a href={item.link} target="_blank" rel="noreferrer">
-              <p className="text-sm">
+              <p className="text-sm text-green-700 dark:text-green-400">
                 {item.link
                   ? item.link.length > 30
                     ? item.link.substring(0, 30)
@@ -54,10 +54,10 @@ export const Results = () => {
                 {item.title || 'No search result'}
               </p>
               <p className="text-base">{item.description || 'No Description'}</p>
-              <p className="text-base">
-                {item.conceptDesc || 'No Concept Description'}
-              </p>
             </a>
+            {/* <p className="text-base text-gray-500 mt-1">
+                {item.conceptDesc || 'No Concept Description'}
+            </p> */}
           </div>
         ))
       ) : (
@@ -65,7 +65,7 @@ export const Results = () => {
           <p className="text-lg text-base mb-4">
             {searchTerm
               ? "No matching results found. Try refining your search."
-              : "Start searching to find results!"}
+              : ""}
           </p>
           {searchTerm && (
             <p className="text-md text-gray-500">
